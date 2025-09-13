@@ -45,17 +45,17 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="relative">
                 <img 
                   src={logo} 
                   alt="Modha Aero Academy" 
-                  className="h-10 w-auto"
+                  className="h-8 sm:h-10 w-auto"
                 />
                 {/* <div className="absolute inset-0 animate-pulse-glow opacity-30"></div> */}
               </div>
-              <div className="hidden sm:block">
-                <span className="font-orbitron font-bold text-xl bg-gradient-primary bg-clip-text text-transparent">
+              <div>
+                <span className="font-orbitron font-bold text-lg sm:text-xl bg-gradient-primary bg-clip-text text-transparent">
                   Modha Aero Academy
                 </span>
               </div>
@@ -89,7 +89,8 @@ const Navigation = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-foreground hover:text-primary"
+                className="bg-transparent text-black hover:bg-transparent hover:text-black"
+                
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -98,12 +99,13 @@ const Navigation = () => {
                 )}
               </Button>
             </div>
+
           </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      {/* {isMobileMenuOpen && (
+      {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="fixed inset-0 bg-background/95 backdrop-blur-xl">
             <div className="flex flex-col items-center justify-center h-full space-y-8">
@@ -116,17 +118,10 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
-              <Button 
-                className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold px-8 py-3"
-                onClick={() => scrollToSection('#contact')}
-              >
-                <Plane className="w-5 h-5 mr-2" />
-                Start Your Journey
-              </Button>
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };
