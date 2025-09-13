@@ -68,8 +68,9 @@ const FloatingDrones = () => {
 };
 
 const TechScanLine = () => (
-  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-primary to-transparent animate-tech-scan opacity-30"></div>
+  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-40 animate-pulse"></div>
 );
+
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
