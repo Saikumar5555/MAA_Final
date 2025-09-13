@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Aerospace Design System - Modha Aero Academy 
+All colors MUST be HSL.
+*/
+
+
+
+@layer base {
+  :root {
+    /* Core Colors - Light Modern Theme */
+    --background: 0 0% 98%;
+    --foreground: 222 32% 15%;
+
+    /* Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 32% 15%;
+    --surface-glass: 0 0% 98%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 32% 15%;
+
+    /* Brand Colors - Modern Blue & Cyan */
+    --primary: 215 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 215 100% 60%;
+    --primary-deep: 215 85% 35%;
+
+    /* Secondary Colors - Electric Cyan */
+    --secondary: 191 85% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 191 85% 60%;
+
+    /* Accent Colors - Purple */
+    --accent: 263 70% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 263 70% 70%;
+
+    /* Muted Colors */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 25% 45%;
+
+    /* Success & Warning */
+    --success: 142 76% 45%;
+    --warning: 45 93% 48%;
+    --destructive: 0 85% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Interactive Elements */
+    --border: 214 32% 85%;
+    --input: 214 32% 90%;
+    --ring: 215 100% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 95%), hsl(191 100% 95%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 40% 98%));
+
+    /* Shadows & Glows */
+    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.2);
+    --shadow-secondary: 0 0 30px hsl(var(--secondary) / 0.2);
+    --shadow-accent: 0 0 30px hsl(var(--accent) / 0.2);
+    --shadow-elegant: 0 10px 40px -10px hsl(222 32% 15% / 0.15);
+    --glow-primary: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --glow-secondary: 0 0 40px hsl(var(--secondary-glow) / 0.3);
+
+    /* Layout */
+    --radius: 0.75rem;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Sidebar (keeping existing for compatibility) */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 32% 15%;
+    --sidebar-primary: 215 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 32% 15%;
+    --sidebar-border: 214 32% 85%;
+    --sidebar-ring: 215 100% 45%;
+  }
+
+  /* Light mode fallback (though we primarily use dark) */
+  .light {
+    --background: 213 100% 98%;
+    --foreground: 222 32% 7%;
+    --card: 213 100% 100%;
+    --card-foreground: 222 32% 7%;
+    --primary: 215 100% 45%;
+    --primary-foreground: 213 100% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter'] antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, hsl(var(--accent) / 0.03) 0%, transparent 50%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Orbitron'] font-bold;
+  }
+}
+
+@layer components {
+  /* Floating Particles Animation */
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: hsl(var(--primary-glow));
+    border-radius: 50%;
+    animation: float-particle 15s infinite ease-in-out;
+    opacity: 0.6;
+  }
+
+  /* Glassmorphism Effect - Light Mode */
+  .glass {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 8px 32px hsl(215 100% 45% / 0.1);
+  }
+
+  /* Neon Glow Effects - Light Mode */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  /* Hexagon Pattern Background */
+  .hex-pattern {
+    background-image: 
+      radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1) 2px, transparent 2px);
+    background-size: 40px 40px;
+  }
+
+  /* Tech Border Effect */
+  .tech-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                var(--gradient-primary) border-box;
+  }
+
+  .tech-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes float-particle {
+    0%, 100% { 
+      transform: translateY(0) rotate(0deg); 
+      opacity: 0;
+    }
+    10% { opacity: 0.6; }
+    50% { 
+      transform: translateY(-100vh) rotate(180deg); 
+      opacity: 0.3;
+    }
+    90% { opacity: 0.1; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  @keyframes slide-in-tech {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes hover-lift {
+    to {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Custom Animations */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-in-tech {
+    animation: slide-in-tech 0.6s ease-out;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    animation: hover-lift 0.3s ease-out forwards;
+  }
+}
