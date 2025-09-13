@@ -55,8 +55,11 @@ const Navigation = () => {
                 {/* <div className="absolute inset-0 animate-pulse-glow opacity-30"></div> */}
               </div>
               <div>
-                <span className="font-orbitron font-bold text-lg sm:text-xl bg-gradient-primary bg-clip-text text-transparent">
+                <span className="hidden sm:flex font-orbitron font-bold text-lg sm:text-xl bg-gradient-primary bg-clip-text text-transparent">
                   Modha Aero Academy
+                </span>
+                <span className="flex sm:hidden font-orbitron font-bold text-2xl bg-gradient-primary bg-clip-text text-transparent">
+                  MAA
                 </span>
               </div>
             </div>
